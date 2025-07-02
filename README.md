@@ -51,7 +51,7 @@ python enhance_contrast.py
     python train.py
 ```
 
-#### Train CryoVMUNet
+#### Prediction
 ```
     python predict.py --empiar_id 10081
 
