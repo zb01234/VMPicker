@@ -36,19 +36,25 @@ conda activate VMPicker
 ## Step-by-step running
 
 #### Preprocessing
+```
 Topaz denoise：
-    cd utils/topaz/
-    python topaz_denoise.py -o ./data/10947/denoised/ ./data/10947/micrographs/*.jpg
+cd utils/topaz/
+python topaz_denoise.py -o ./data/10947/denoised/ ./data/10947/micrographs/*.jpg
 
 contrast enhance：
-    cd utils/topaz//utils
-    python enhance_contrast.py
+cd utils/topaz//utils
+python enhance_contrast.py
+```
 
 #### Train CryoVMUNet
+```
     python train.py
+```
 
 #### Train CryoVMUNet
+```
     python predict.py --empiar_id 10081
 
     python generate_starfile.py --empiar_id 10081 --file_name 10081.star
+```
 
