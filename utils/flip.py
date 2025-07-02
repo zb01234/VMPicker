@@ -2,7 +2,7 @@ import cv2
 import os
 import glob
 
-IMAGE_DIRECTORY = '/./CryoSegNet/Evaluation/General/Our/10081/masks'
+IMAGE_DIRECTORY = './Evaluation/General/VMPicker/10081/masks'
 
 image_files = glob.glob(os.path.join(IMAGE_DIRECTORY, '*.jpg'))
 

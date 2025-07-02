@@ -9,8 +9,8 @@ import torch.nn.functional as F
 import torch.utils.data
 
 
-from loader import load_image
-from filters import AffineFilter, AffineDenoise, GaussianDenoise, gaussian_filter, inverse_filter
+from utils.loader import load_image
+from utils.filters import AffineFilter, AffineDenoise, GaussianDenoise, gaussian_filter, inverse_filter
 
 
 def load_model(name):
@@ -48,7 +48,7 @@ def load_model(name):
     # load the pretrained model parameters
     import pkg_resources
     pkg = __name__
-    path = '/data1/zb2023388025/CryoSegNet/utils/topaz/pretained/denoise/' + name
+    path = 'pretained/denoise/' + name
     f = pkg_resources.resource_stream(pkg, path)
     state_dict = torch.load(f) # load the parameters
 

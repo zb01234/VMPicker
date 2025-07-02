@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 import os
 
-import mrc
+import utils.mrc as mrc
 
 def downsample(x, factor=1, shape=None):
     """ Downsample 2d array using fourier transform """
@@ -31,6 +31,7 @@ def downsample(x, factor=1, shape=None):
 
     return f.astype(x.dtype)
 
+# 对输入数组 x 进行归一化，并将其像素值量化到 [0, 255] 范围
 def quantize(x, mi=-3, ma=3, dtype=np.uint8):
     if mi is None:
         mi = x.min()

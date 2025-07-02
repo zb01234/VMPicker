@@ -281,7 +281,7 @@ class SC_Att_Bridge(nn.Module):
 
 class CryoVMUNet(nn.Module):
     def __init__(self, num_classes=1, input_channels=3, layer_scale_init_value=1e-6, H_SS2D=H_SS2D, block=Block, pretrained=None,
-                 use_checkpoint=False, c_list=[8,16,32,64,128,256], depths=[2, 2, 2, 2], drop_path_rate=0.,
+                 use_checkpoint=False, c_list=[16,32,64,128,256,256], depths=[2, 2, 2, 2], drop_path_rate=0.,
                 split_att='fc', bridge=True):
         super().__init__()
         self.pretrained = pretrained

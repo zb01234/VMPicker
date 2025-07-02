@@ -75,10 +75,15 @@ def add_arguments(parser=None):
     return parser
 
 
-import topaz.utils.denoise as dn
+import utils.denoise as dn
 from utils.image import save_image
-from utils.enhance_contrast import standard_scaler, clahe, guided_filter
 
+
+
+# wget https://calla.rnet.missouri.edu/cryoppp_lite/10389.tar.gz
+# tar -zxvf 10947.tar.gz -C /home/user/Topaz/data
+
+# python topaz_denoise.py -o /home/user/Topaz/data/10947/denoised/ /home/user/Topaz/data/10947/micrographs/*.jpg
 
 def denoise_image(mic, models, deconvolve=False, deconv_patch=1, patch_size=-1, padding=0, normalize=False, use_cuda=True):
 
@@ -112,21 +117,14 @@ def denoise_image(mic, models, deconvolve=False, deconv_patch=1, patch_size=-1, 
     # back to numpy/cpu
     mic = mic.cpu().numpy()
 
-    # CLAHE
-    mic_clahe = clahe(mic)
-
-    # guided_filter
-    mic_filtered = guided_filter(mic, mic_clahe)
-
-    return mic_filtered
-
+    return mic
 
 
 def main(args):
 
     # set the number of threads
     num_threads = args.num_threads
-    from topaz.utils.torch import set_num_threads
+    from utils.torch import set_num_threads
     set_num_threads(num_threads)
 
     # ## set the device

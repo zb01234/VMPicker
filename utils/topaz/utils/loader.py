@@ -7,8 +7,8 @@ import numpy as np
 from PIL import Image
 import torch
 
-import mrc
-from image import unquantize
+import utils.mrc as mrc
+from utils.image import unquantize
 
 class ImageDirectoryLoader:
     def __init__(self, rootdir, pathspec=os.path.join('{source}', '{image_name}'), format='tiff'
