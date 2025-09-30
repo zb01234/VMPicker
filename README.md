@@ -1,4 +1,4 @@
-# VMPicker: A novel cryo-EM particle picker integrating Vision Mamba with the Segment Anything Model 
+# VMPicker: A novel cryo-EM particle picker leveraging Vision Mamba and the Segment Anything Model
 
 VMPicker is a novel cryo-EM particle picking method that integrates the high-order Vision Mamba-based segmentation network (CryoVMUNet) with the Segment Anything Model (SAM) for precise and efficient identification of protein particles in cryo-EM micrographs. It leverages a cascaded pipeline combining Topaz denoising, high-fidelity CryoVMUNet segmentation, and SAM’s automatic mask generation to robustly detect particles under low SNR and complex backgrounds. Trained and tested on 10 diverse cryo-EM datasets, VMPicker achieves superior performance in terms of precision, F1 score, and Dice score, while maintaining high computational efficiency. It outputs standard .star files compatible with tools such as RELION and CryoSPARC, making it a powerful and practical solution for high-resolution structural analysis in cryo-EM.
 
