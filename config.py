@@ -4,12 +4,12 @@ import argparse
 import torch
 
 # Create an argument parser
-parser = argparse.ArgumentParser(description="CryoSegNet Training")
+parser = argparse.ArgumentParser(description="VMPicker Training")
 
 # Add arguments
-parser.add_argument("--train_dataset_path", type=str, default="train_dataset/10081/", help="Path to the training dataset")
-parser.add_argument("--test_dataset_path", type=str, default="test_dataset", help="Path to the test dataset")
-parser.add_argument("--output_path", type=str, default="output", help="Output directory")   
+parser.add_argument("--train_dataset_path", type=str, default="./train_dataset/10081/", help="Path to the training dataset")
+parser.add_argument("--test_dataset_path", type=str, default="./test_dataset", help="Path to the test dataset")
+parser.add_argument("--output_path", type=str, default="./output", help="Output directory")   
 
 # Device-related arguments
 parser.add_argument("--device", type=str, default="cuda:0" if torch.cuda.is_available() else "cpu", help="Device (cuda:0 or cpu)")
@@ -39,8 +39,8 @@ parser.add_argument('--vit_patches_size', type=int, default=16, help='vit_patche
 parser.add_argument("--logging", action="store_true", help="Enable logging") 
 
 # Model related arguments
-parser.add_argument("--vmpicker_checkpoint", type=str, default="output/vmpicker_best_val_loss.pth", help="Path to VMPicker checkpoint")
-parser.add_argument("--sam_checkpoint", type=str, default="pretrained_models/sam_vit_h_4b8939.pth", help="Path to SAM checkpoint")
+parser.add_argument("--vmpicker_checkpoint", type=str, default="./output/vmpicker_best_val_loss.pth", help="Path to VMPicker checkpoint")
+parser.add_argument("--sam_checkpoint", type=str, default="./pretrained_models/sam_vit_h_4b8939.pth", help="Path to SAM checkpoint")
 parser.add_argument("--model_type", type=str, default="vit_h", help="SAM Model type")
 
 # Additional Arguments for prediction
@@ -48,7 +48,7 @@ parser.add_argument("--empiar_id", type=int, default=10081, help="EMPIAR ID for 
 parser.add_argument("--file_name", type=str, default="10081.star", help="Filename for picked proteins coordinates")
 
 # Additional info in architecture name
-architecture_name = "CryoSegNet Model with Batchsize: {}, InputShape: {}, LR {}".format(
+architecture_name = "VMPicker Model with Batchsize: {}, InputShape: {}, LR {}".format(
     parser.parse_args().batch_size,
     parser.parse_args().input_shape,
     parser.parse_args().learning_rate

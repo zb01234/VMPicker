@@ -31,7 +31,7 @@ def add_arguments(parser=None):
 
     parser.add_argument('-o', '--output', help='directory to save denoised micrographs')
     parser.add_argument('--suffix', default='', help='add this suffix to each output file name. if no output directory is specified, denoised micrographs are written to the same location as the input with a default suffix of ".denoised" (default: none)')
-    parser.add_argument('--format', dest='format_', default='jpg', help='output format for the images (default: mrc)') 
+    parser.add_argument('--format', dest='format_', default='jpg', help='output format for the images (mrc or jpg)') 
     parser.add_argument('--normalize', action='store_true', help='normalize the micrographs')
 
     parser.add_argument('--stack', action='store_true', help='denoise a MRC stack rather than list of micorgraphs')
@@ -79,11 +79,6 @@ import utils.denoise as dn
 from utils.image import save_image
 
 
-
-# wget https://calla.rnet.missouri.edu/cryoppp_lite/10389.tar.gz
-# tar -zxvf 10947.tar.gz -C /home/user/Topaz/data
-
-# python topaz_denoise.py -o /home/user/Topaz/data/10947/denoised/ /home/user/Topaz/data/10947/micrographs/*.jpg
 
 def denoise_image(mic, models, deconvolve=False, deconv_patch=1, patch_size=-1, padding=0, normalize=False, use_cuda=True):
 
