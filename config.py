@@ -14,7 +14,7 @@ parser.add_argument("--output_path", type=str, default="./output", help="Output 
 # Device-related arguments
 parser.add_argument("--device", type=str, default="cuda:0" if torch.cuda.is_available() else "cpu", help="Device (cuda:0 or cpu)")
 parser.add_argument("--pin_memory", action="store_true", help="Enable pin_memory for data loading if using CUDA")
-parser.add_argument("--num_workers", type=int, default=16, help="Number of data loading workers")
+parser.add_argument("--num_workers", type=int, default=8, help="Number of data loading workers")
 
 # Model-related arguments
 parser.add_argument("--num_channels", type=int, default=1, help="Number of input channels")
@@ -30,10 +30,6 @@ parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
 parser.add_argument("--input_image_width", type=int, default=512, help="Input image width")
 parser.add_argument("--input_image_height", type=int, default=512, help="Input image height")
 parser.add_argument("--input_shape", type=int, default=512, help="Input image shape")
-
-parser.add_argument('--img_size', type=int, default=512, help='input patch size of network input')
-parser.add_argument('--vit_name', type=str, default='R50-ViT-B_16', help='select one vit model')
-parser.add_argument('--vit_patches_size', type=int, default=16, help='vit_patches_size, default is 16')
 
 # Logging-related arguments
 parser.add_argument("--logging", action="store_true", help="Enable logging") 
@@ -83,7 +79,3 @@ transunet_checkpoint = args.transunet_checkpoint
 model_type = args.model_type
 empiar_id = args.empiar_id
 file_name = args.file_name
-
-img_size = args.img_size
-vit_name = args.vit_name
-vit_patches_size = args.vit_patches_size

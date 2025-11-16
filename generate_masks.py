@@ -6,6 +6,7 @@ import glob
 import pandas as pd
 import config
 
+
 MRC_FILE_LOCATION = "test_dataset/10081/images"
 CSV_FILE_LOCATION = "output/csv_files"
 MASK_FILE_LOCATION = "Evaluation/General/VMPicker/10081/masks"
@@ -57,32 +58,6 @@ for i in range(len(records)):
 #     else:
 #         print(f"Line {i} does not match expected format: {line}")
 
-
-# import re
-
-# micrograph_filename = []
-# x_coordinate = []
-# y_coordinate = []
-
-# for i in range(len(records)):
-#     line = records.iloc[i]
-#     line = str(line).strip()
-
-#     # sb1_210512 pos 1042 1-2_1.mrc    2593.5    2064.0    -9999    -9999    0.9999869
-#     match = re.match(r'^(.*?\.mrc)\s+([\d\.]+)\s+([\d\.]+)', line)
-
-#     if match:
-#         micrograph_filename_ = match.group(1).strip()
-#         x_coordinate_ = int(float(match.group(2)))
-#         y_coordinate_ = int(float(match.group(3)))
-
-#         micrograph_filename.append(micrograph_filename_)
-#         x_coordinate.append(x_coordinate_)
-#         y_coordinate.append(y_coordinate_)
-
-#         print(micrograph_filename_)
-#     else:
-#         print(f"Line {i} does not match expected format: {line}")
 
     
 df.insert(0, columns_names[0], micrograph_filename)

@@ -94,7 +94,7 @@ def evaluation(model, images_path, empiar_id, threshold=0.1):
     
 
 # empiar_ids = [10028, 10081, 10345, 11056, 10532, 10093, 10017]
-empiar_ids = [100812]
+empiar_ids = [10081]
 print("[INFO] Loading up test images path ...")
 for empiar_id in empiar_ids:
     images_path = list(glob.glob(f"{config.test_dataset_path}/{empiar_id}/images/*.jpg"))

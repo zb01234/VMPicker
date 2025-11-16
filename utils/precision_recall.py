@@ -72,14 +72,12 @@ def evaluation(gt_path, model):
     
 
 # empiar_ids = [10028, 10081, 10345, 11056, 10532, 10093, 10017]
-empiar_ids = [100812]
+empiar_ids = [10081]
 print("[INFO] Loading up test images path ...")
 for empiar_id in empiar_ids:
     gt_path = list(glob.glob(f"{config.test_dataset_path}/{empiar_id}/masks/*.jpg"))[:]
     print("\n")
     print(f"Evaluation Results for EMPIAR ID {empiar_id}")
-    # evaluation(gt_path, model = "CrYOLO")
-    # evaluation(gt_path, model = "Topaz")
     # evaluation(gt_path, model = "CryoSegNet")
     evaluation(gt_path, model = "VMPicker")
     # evaluation(gt_path, model = "CryoTransformer")

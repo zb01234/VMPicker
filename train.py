@@ -34,9 +34,6 @@ train_image_path = list(glob.glob(config.train_dataset_path + 'train/images/*.jp
 val_image_path = list(glob.glob(config.train_dataset_path + 'val/images/*.jpg'))
 
 
-# train_ds = CryoEMDataset(img_dir=train_image_path, transform=None)   
-# val_ds = CryoEMDataset(img_dir=val_image_path, transform=None)
-
 train_ds = CryoEMDataset(img_dir=train_image_path, augment=True)  
 val_ds = CryoEMDataset(img_dir=val_image_path, augment=False)      
 

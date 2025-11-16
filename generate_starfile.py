@@ -1,5 +1,6 @@
 # Code for generating star file
 
+
 import config
 import matplotlib.pyplot as plt
 import numpy as np
